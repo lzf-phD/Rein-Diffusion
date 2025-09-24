@@ -23,9 +23,7 @@ class vgg16(torch.nn.Module):
     def __init__(self, requires_grad=False, pretrained=True):
         super(vgg16, self).__init__()
         # Load pretrained vgg model from torchvision
-        #vgg_pretrained_features = torchvision.models.vgg16(pretrained=pretrained).features
-        vgg_pretrained_features = torchvision.models.vgg16(weights=None).features  # 从torchvision.models载入预训练的vgg16模型
-        vgg_pretrained_features.load_state_dict(torch.load('vgg16_weights.pth'))
+        vgg_pretrained_features = torchvision.models.vgg16(pretrained=pretrained).features
         self.slice1 = torch.nn.Sequential()
         self.slice2 = torch.nn.Sequential()
         self.slice3 = torch.nn.Sequential()
